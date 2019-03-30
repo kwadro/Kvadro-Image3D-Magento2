@@ -1,0 +1,62 @@
+<?php $url = $block->getSendDataUrl(); ?>
+
+<?php $token = $block->getActiveToken(); ?>
+
+<?php if (!$token) exit; ?>
+
+<button type="button" class="action- scalable save primary js-button-save-synchronize">
+    <span><?php echo __('Save'); ?></span>
+</button>
+
+<script>
+    require([
+        'jquery',
+        'Magento_Ui/js/modal/alert',
+        'mage/translate'
+    ], function ($, alert) {
+
+        var ajax_url = '<?php echo $url;?>';
+
+        $('.js-button-save-synchronize').on('click', function (event) {
+            event.preventDefault();
+
+            var datapost = new Object();
+
+            $('.kvadro-advance .admin__control-checkbox').each(function (index) {
+                datapost[$(this).attr('name')] = $(this).val();
+            });
+
+            if (this.xhr) {
+                this.xhr.abort();
+            }
+            this.xhr = $.ajax({
+                showLoader: true,
+                method: "post",
+                dataType: "json",
+                url: ajax_url,
+                data: datapost,
+                success: function (response) {
+                    if (!response.error) {
+                        alert({
+                            content: response.message
+                        })
+                    } else {
+
+                        alert({
+                            content: response.message
+                        });
+                        return false;
+
+                    }
+                },
+                error: $.proxy(function (response) {
+                    console.log('error');
+                })
+
+            });
+
+        });
+
+    });
+
+</script>

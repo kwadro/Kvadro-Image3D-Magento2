@@ -1,0 +1,23 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Kvadro_Magento3D::menu" title="Kvadro" module="Kvadro_Magento3D" sortOrder="50"
+             resource="Kvadro_Magento3D::menu"/>
+
+        <add id="Kvadro_Magento3D::kvadrosetting" title="Setting" module="Kvadro_Magento3D"
+             sortOrder="10"
+             resource="Kvadro_Magento3D::kvadrosetting" parent="Kvadro_Magento3D::menu"/>
+
+        <add id="Kvadro_Magento3D::kvadrogeneralsetting" title="Image360" module="Kvadro_Magento3D"
+             sortOrder="10" action="kvadro/index/action" resource="Kvadro_Magento3D::kvadrogeneralsetting"
+             parent="Kvadro_Magento3D::kvadrosetting"/>
+
+        <add id="Kvadro_Magento3D::documentation" title="Documentations" module="Kvadro_Magento3D"
+             sortOrder="999"
+             resource="Kvadro_Magento3D::documentation" parent="Kvadro_Magento3D::menu"/>
+
+        <add id="Kvadro_Magento3D::userguide" title="User Guides" module="Kvadro_Magento3D" sortOrder="20"
+             action="kvadro/index/userguide" resource="Kvadro_Magento3D::userguide"
+             parent="Kvadro_Magento3D::documentation"/>
+    </menu>
+</config>

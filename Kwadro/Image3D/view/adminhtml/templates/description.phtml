@@ -1,0 +1,19 @@
+<div class="bootstrap">
+    <div class="alert alert-info">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <ul id="infos_block" class="list-unstyled">
+            <li><h2>How to create</h2>
+                       </li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    require([
+        'jquery',
+    ], function ($) {
+        $('.close').on('click',function () {
+            $('.alert-info').remove();
+        })
+    });
+</script>

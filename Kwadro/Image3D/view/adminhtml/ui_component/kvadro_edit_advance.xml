@@ -1,0 +1,195 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ *  Edit Ui component admin  form Kvadro Data
+ */
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">kvadro_edit_advance.kvadro_edit_advance_data_source</item>
+            <item name="deps" xsi:type="string">kvadro_edit_advance.kvadro_edit_advance_data_source</item>
+        </item>
+        <item name="label" translate="true" xsi:type="string">General Information</item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">kvadro_edit_advance</item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <dataSource name="kvadro_edit_advance_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Kvadro\Image3D\Model\Data\KvadroSyncJobProvider</argument>
+            <argument name="name" xsi:type="string">kvadro_edit_advance_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">entity_id</argument>
+            <argument name="requestFieldName" xsi:type="string">entity_id</argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+    <fieldset name="KvadroSetting">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true" >SYNCHRONIZE</item>
+            </item>
+        </argument>
+
+        <container name="synchonize_title" >
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">10</item>
+                </item>
+            </argument>
+            <htmlContent name="synchonize_title_content">
+                <argument name="block" xsi:type="object">Kvadro\Image3D\Block\Adminhtml\Edit\SynchronizeTitle</argument>
+            </htmlContent>
+        </container>
+
+        <container name="synchonize_button_reset" >
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">30</item>
+                </item>
+            </argument>
+            <htmlContent name="synchonize_button_reset_content">
+                <argument name="block" xsi:type="object">Kvadro\Image3D\Block\Adminhtml\Button\SendReset</argument>
+            </htmlContent>
+        </container>
+
+        <container name="synchonize_button_send" >
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">40</item>
+                </item>
+            </argument>
+            <htmlContent name="synchonize_button_send_content">
+                <argument name="block" xsi:type="object">Kvadro\Image3D\Block\Adminhtml\Button\SendSynchronize</argument>
+            </htmlContent>
+        </container>
+
+
+        <field name="auto_new_product">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Autosync new/updated product</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">checkbox</item>
+                    <item name="valueMap" xsi:type="array">
+                        <item name="true" xsi:type="number">2</item>
+                        <item name="false" xsi:type="number">1</item>
+                    </item>
+                    <item name="source" xsi:type="string">auto_new_product</item>
+                </item>
+            </argument>
+        </field>
+
+        <field name="update_manual_choices">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Autosync new/updated product</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">checkbox</item>
+                    <item name="valueMap" xsi:type="array">
+                        <item name="true" xsi:type="number">2</item>
+                        <item name="false" xsi:type="number">1</item>
+                    </item>
+                    <item name="source" xsi:type="string">update_manual_choices</item>
+                </item>
+            </argument>
+        </field>
+
+        <field name="use_thumbnall_of_button">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Use thumbnall instead of 3D button</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">checkbox</item>
+                    <item name="valueMap" xsi:type="array">
+                        <item name="true" xsi:type="number">2</item>
+                        <item name="false" xsi:type="number">1</item>
+                    </item>
+                    <item name="source" xsi:type="string">use_thumbnall_of_button</item>
+                </item>
+            </argument>
+        </field>
+
+        <field name="add_preview_to_gallery">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Add preview image to gallery</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">checkbox</item>
+                    <item name="valueMap" xsi:type="array">
+                        <item name="true" xsi:type="number">2</item>
+                        <item name="false" xsi:type="number">1</item>
+                    </item>
+                    <item name="source" xsi:type="string">add_preview_to_gallery</item>
+                    <item name="switcherConfig" xsi:type="array">
+                        <item name="enabled" xsi:type="boolean">true</item>
+                        <item name="rules" xsi:type="array">
+                            <item name="0" xsi:type="array">
+                                <item name="value" xsi:type="number">1</item>
+                                <item name="actions" xsi:type="array">
+                                    <item name="0" xsi:type="array">
+                                        <item name="target" xsi:type="string">kvadro_edit_advance.kvadro_edit_advance.KvadroSetting.set_preview_base</item>
+                                        <item name="callback" xsi:type="string">hide</item>
+                                    </item>
+                                </item>
+                            </item>
+                            <item name="1" xsi:type="array">
+                                <item name="value" xsi:type="number">2</item>
+                                <item name="actions" xsi:type="array">
+                                    <item name="0" xsi:type="array">
+                                        <item name="target" xsi:type="string">kvadro_edit_advance.kvadro_edit_advance.KvadroSetting.set_preview_base</item>
+                                        <item name="callback" xsi:type="string">show</item>
+                                    </item>
+                                </item>
+                            </item>
+
+                        </item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+
+        <field name="set_preview_base">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Set Preview Image as Base</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">checkbox</item>
+                    <item name="valueMap" xsi:type="array">
+                        <item name="true" xsi:type="number">2</item>
+                        <item name="false" xsi:type="number">1</item>
+                    </item>
+                    <item name="source" xsi:type="string">set_preview_base</item>
+                </item>
+            </argument>
+        </field>
+
+
+        <container name="synchonize_button_save" >
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">100</item>
+                </item>
+            </argument>
+
+            <htmlContent name="synchonize_button_save_content">
+                <argument name="block" xsi:type="object">Kvadro\Image3D\Block\Adminhtml\Button\SaveSynchrinize</argument>
+            </htmlContent>
+
+        </container>
+    </fieldset>
+
+</form>
+

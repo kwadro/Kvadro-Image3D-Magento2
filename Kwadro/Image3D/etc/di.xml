@@ -1,0 +1,30 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="Kvadro\Image3D\Api\Data\KvadroDataInterface"
+                type="Kvadro\Image3D\Model\KvadroSetting"/>
+    <virtualType name="Kvadro\Image3D\Model\ResourceModel\Grid\KvadroSetting\Collection"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">kvadro_tech_kvadro3D_user</argument>
+            <argument name="resourceModel" xsi:type="string">
+                Kvadro\Image3D\Model\ResourceModel\KvadroSetting
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="kvadro_grid_setting_data_source" xsi:type="string">
+                    Kvadro\Image3D\Model\ResourceModel\Grid\KvadroSetting\Collection
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <preference for="Magento\ProductVideo\Block\Product\View\Gallery"
+                type="Kvadro\Image3D\Block\ProductVideo\View\Gallery"/>
+    <type name="Magento\Catalog\Block\Product\View\Gallery">
+        <plugin disabled="false" name="add_3D_image"
+                type="Kvadro\Image3D\Model\Plugin\Catalog\Product\Gallery\AddImage3DInGallery" sortOrder="10"/>
+    </type>
+</config>

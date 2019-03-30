@@ -1,0 +1,5 @@
+<?php $active_user_id = $block->loadActiveUser(); ?>
+<?php if ($active_user_id): ?>
+    <?php echo $block->getChildHtml(); ?>
+<?php endif; ?>
+

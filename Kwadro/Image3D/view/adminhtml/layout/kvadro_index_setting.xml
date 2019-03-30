@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="formkey"/>
+    <head>
+        <css src="Kvadro_Magento3D::css/kvadro.css"/>
+    </head>
+    <body>
+        <referenceBlock name="menu">
+            <action method="setActive">
+                <argument name="itemId" xsi:type="string">Kvadro_Magento3D::menu</argument>
+            </action>
+        </referenceBlock>
+        <referenceContainer name="content">
+
+            <!--SECTION INSTRUCTION -->
+            <container name="kvadro-instruction" htmlTag="section" htmlClass="kvadro-instruction"
+                       before="-">
+                <block class="Magento\Framework\View\Element\Template" name="cappacity.instruction"
+                       template="Kvadro_Magento3D::description.phtml"/>
+            </container>
+            <!--SECTION INSTRUCTION END -->
+
+            <!--SECTION TOKEN -->
+            <container name="kvadro-token" htmlTag="section" htmlClass="kvadro-token"
+                       after="cappacity.instruction">
+                <uiComponent name="kvadro_edit_setting"/>
+            </container>
+            <!--SECTION TOKEN END-->
+
+            <!--SECTION ADDITIONAL SETTING-->
+            <block class="Kvadro\Image3D\Block\Adminhtml\Edit\AdvanceSetting" name="cappacity.access"
+                   template="Kvadro_Magento3D::set-access.phtml" after="kvadro-token">
+                <container name="kvadro-advance" htmlTag="section" htmlClass="kvadro-advance">
+                    <uiComponent name="kvadro_edit_advance"/>
+                </container>
+            </block>
+            <!--SECTION ADDITIONAL END -->
+
+        </referenceContainer>
+    </body>
+</page>

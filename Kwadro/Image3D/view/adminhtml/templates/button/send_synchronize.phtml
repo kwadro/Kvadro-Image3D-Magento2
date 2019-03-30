@@ -1,0 +1,34 @@
+<?php $url = $block->getSendDataUrl(); ?>
+
+<?php $token = $block->getActiveToken(); ?>
+
+<?php if (!$token) exit;?>
+
+<?php $loading = $block->loadActiveSyncJob(); ?>
+
+<button type="button" class="action- scalable save primary js-button-send-synchronize">
+    <span><?php echo __('Synchronization'); ?></span>
+</button>
+
+<?php if ($loading): ?>
+
+    <div class="synchronize-list_info-text">
+        <?php echo __('Synchronization in progress'); ?>
+    </div>
+
+<?php endif; ?>
+
+<script>
+    require([
+        'jquery',
+        'Magento_Ui/js/modal/alert',
+        'mage/translate'
+    ], function ($, alert) {
+
+        $('.js-button-send-synchronize').on('click', function () {
+            var token = '<?php echo $token;?>';
+            var url = '<?php echo $url;?>' + "?token=" + token;
+            window.location.replace(url)
+        })
+    });
+</script>

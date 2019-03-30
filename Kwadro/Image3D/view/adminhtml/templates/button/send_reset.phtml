@@ -1,0 +1,19 @@
+<?php $url = $block->getResetDataUrl(); ?>
+
+<button id="send-data" type="button" class="action- scalable save primary js-button-send-reset">
+    <span><?php echo __('Reset'); ?></span>
+</button>
+
+<script>
+    require([
+        'jquery',
+    ], function ($) {
+
+        $('.js-button-send-reset').on('click', function () {
+
+            var url = '<?php echo $url;?>';
+
+            window.location.replace(url)
+        })
+    });
+</script>
